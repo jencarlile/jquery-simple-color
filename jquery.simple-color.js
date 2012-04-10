@@ -153,20 +153,20 @@
             }
 
             // Create the select button 
-            var select_button = $("<input type='button' value='Select'" + 
-                                  " class='simpleColorSelectButton "+options.buttonClass+"'>");
-            container.append(select_button);
+            //var select_button = $("<input type='button' value='Select'" + 
+            //                      " class='simpleColorSelectButton "+options.buttonClass+"'>");
+            //container.append(select_button);
 
             // Create the cancel button
-            var cancel_button = $("<input type='button' value='Cancel'" + 
-                                  " class='simpleColorCancelButton "+options.buttonClass+"'>");
+            //var cancel_button = $("<input type='button' value='Cancel'" + 
+            //                      " class='simpleColorCancelButton "+options.buttonClass+"'>");
                                   
-            container.append(cancel_button);
-            cancel_button.hide();
+            //container.append(cancel_button);
+            //cancel_button.hide();
             
             var select_callback = function (event) {
-               event.data.select_button.hide();
-               event.data.cancel_button.show();
+               //event.data.select_button.hide();
+               //event.data.cancel_button.show();
 
                // Use an existing chooser if there is one
                if (event.data.container.chooser) {
@@ -202,17 +202,17 @@
                        cell.bind('click', {
                                input: event.data.input, 
                                chooser: chooser, 
-                               select_button: select_button, 
-                               cancel_button: cancel_button, 
+                               //select_button: select_button, 
+                               //cancel_button: cancel_button, 
                                display_box: display_box}, 
                            function(event) {
                                event.data.input.value = '#' + this.id;
                                $(event.data.input).change();
                                event.data.display_box.css('backgroundColor', '#' + this.id);
                                event.data.chooser.hide();
-                               event.data.cancel_button.hide();
+                               //event.data.cancel_button.hide();
                                event.data.display_box.show();
-                               event.data.select_button.show();
+                               //event.data.select_button.show();
        
                                // If 'displayColorCode' is turned on, display the currently selected color code as text inside the button.
                                if (options.displayColorCode) {
@@ -227,19 +227,19 @@
            var callback_params = {
                container: container, 
                input: this, 
-               cancel_button: cancel_button, 
+               //cancel_button: cancel_button, 
                display_box: display_box, 
-               select_button: select_button
+               //select_button: select_button
            };
 
            // Bind the select button to display the chooser.
-           select_button.bind('click', callback_params, select_callback);
+           //select_button.bind('click', callback_params, select_callback);
 
            // Also bind the display box button to display the chooser.
            display_box.bind('click', callback_params, select_callback);
 
            // Bind the cancel button to hide the chooser
-           cancel_button.bind('click', {
+           /*cancel_button.bind('click', {
                container: container, 
                 select_button: select_button, 
                 display_box: display_box}, 
@@ -249,7 +249,7 @@
                     event.data.display_box.show();
                     event.data.select_button.show();
                 }
-            );
+            );*/
 
             $(this).after(container);
 
@@ -266,10 +266,10 @@
     $.fn.closeSelector = function() {
         this.each( function(index) {
             var container = $(this).parent().find('div.simpleColorContainer');
-            container.find('.simpleColorCancelButton').hide();
+            //container.find('.simpleColorCancelButton').hide();
             container.find('.simpleColorChooser').hide();
             container.find('.simpleColorDisplay').show();
-            container.find('.simpleColorSelectButton').show();
+            //container.find('.simpleColorSelectButton').show();
         });
 
         return this;
